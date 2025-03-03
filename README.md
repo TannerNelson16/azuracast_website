@@ -13,4 +13,4 @@ source venv/bin/activate
 
 gunicorn -w 4 -b 0.0.0.0:4592 app:app --daemon
 
-Also be sure the add your html widgets from your azuracast stream in the index.html file!
+Also be sure the add your mytuner link and  html widgets from your azuracast stream,history, and requests in the index.html file!
