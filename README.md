@@ -10,6 +10,7 @@ python3 -m venv
 Then once the folders and files from this repository are copied the your main website folder, run these commands:
 
 source venv/bin/activate
+
 gunicorn -w 4 -b 0.0.0.0:4592 app:app --daemon
 
 Also be sure the add your html widgets from your azuracast stream in the index.html file!
