@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morgan Valley Radio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Previous styles remain the same until header... */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+                                                                                                                                                                                                                   
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background-color: #222;
+            color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 0;
+            min-height: 100vh;
+            width: 100%;
+        }
+                                                                                                                                                                                                                   
+        header {
+            width: 100%;
+            padding: 30px 0;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+                                                                                                                                                                                                                   
+        .background-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+        .background-container .background {                                                                                                                                                                        
+            width: 100%;                                                                                                                                                                                           
+            height: 100%;                                                                                                                                                                                          
+            object-fit: cover;                                                                                                                                                                                     
+            position: absolute;                                                                                                                                                                                    
+            top: 0;                                                                                                                                                                                                
+            left: 0;                                                                                                                                                                                               
+        }                                                                                                                                                                                                          
+                                                                                                                                                                                                                   
+        .background-container .logo {                                                                                                                                                                              
+            position: absolute;                                                                                                                                                                                    
+            top: 50%;                                                                                                                                                                                              
+            left: 50%;                                                                                                                                                                                             
+            transform: translate(-50%, -50%);                                                                                                                                                                      
+            width: 250px;                                                                                                                                                                                          
+            height: auto;                                                                                                                                                                                          
+            z-index: 2;                                                                                                                                                                                            
+            filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));                                                                                                                                                         
+        }                                                                                                                                                                                                          
+                                                                                                                                                                                                                   
+        .container {                                                                                                                                                                                               
+            width: 100%;                                                                                                                                                                                           
+            max-width: 1400px;                                                                                                                                                                                     
+            padding: 20px;                                                                                                                                                                                         
+            margin: 0 auto;                                                                                                                                                                                        
+        }                                                                                                                                                                                                          
+                                                                                                                                                                                                                   
+        .iframe-container {                                                                                                                                                                                        
+            margin: 20px 0;                                                                                                                                                                                        
+            width: 100%;                                                                                                                                                                                           
+            background-color: rgba(0, 0, 0, 0.2);                                                                                                                                                                  
+            border-radius: 8px;                                                                                                                                                                                    
+            overflow: hidden;                                                                                                                                                                                      
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);                                                                                                                                                              
+        }                                                                                                                                                                                                          
+                                                                                                                                                                                                                   
+        /* New styles for subheadings and MyTuner button */                                                                                                                                                        
+        .subheading {                                                                                                                                                                                              
+            font-size: 1.5em;                                                                                                                                                                                      
+            font-weight: 600;                                                                                                                                                                                      
+            margin: 30px 0 15px;                                                                                                                                                                                   
+            color: #fff;                                                                                                                                                                                           
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);                                                                                                                                                                
+        }                                                                                                                                                                                                          
+                                                                                                                                                                                                                   
+        .mytuner-button {                                                                                                                                                                                          
+            display: inline-block;                                                                                                                                                                                 
+            padding: 12px 24px;   
+            color: #222;                                                                                                                                                                                           
+            text-decoration: none;                                                                                                                                                                                 
+            border-radius: 8px;                                                                                                                                                                                    
+            margin: 20px 0;                                                                                                                                                                                        
+            transition: transform 0.2s, box-shadow 0.2s;                                                                                                                                                           
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);                                                                                                                                                                 
+        }                                                                                                                                                                                                          
+                                                                                                                                                                                                                   
+        .mytuner-button:hover {                                                                                                                                                                                    
+            transform: translateY(-2px);                                                                                                                                                                           
+            box-shadow: 0 6px 8px rgba(0,0,0,0.2);                                                                                                                                                                 
+        }                                                                                                                                                                                                          
+                                                                                                                                                                                                                   
+        .mytuner-button img {                                                                                                                                                                                      
+            height: 30px;                                                                                                                                                                                          
+            vertical-align: middle;                                                                                                                                                                                
+            margin-right: 10px;                                                                                                                                                                                    
+        }                                                                                                                                                                                                          
+                                                                                                                                                                                                                   
+        @media (max-width: 768px) {                                                                                                                                                                                
+            header {                                                                                                                                                                                               
+                font-size: 2em;                                                                                                                                                                                    
+                padding: 20px 0;                                                                                                                                                                                   
+            }                                                                                                                                                                                                      
+            .background-container {                                                                                                                                                                                
+                height: 300px;                                                                                                                                                                                     
+            }                                                                                                                                                                                                      
+            .background-container .logo {                                                                                                                                                                          
+                width: 200px;                                                                                                                                                                                      
+            }                                                                                                                                                                                                      
+            .subheading {                                                                                                                                                                                          
+                font-size: 1.2em;                                                                                                                                                                                  
+            }                                                                                                                                                                                                      
+        }                                                                                                                                                                                                          
+    </style>
+</head>
+<body>
+    <header>Morgan Valley Radio</header>
+                                                                                                                                                                                                                   
+    <div class="background-container">
+        <img src="{{ url_for('static', filename='background.jpg') }}" alt="Scenic Background" class="background">
+        <img src="{{ url_for('static', filename='MVRC.png') }}" alt="Morgan Valley Radio Logo" class="logo">
+    </div>
+                                                                                                                                                                                                                   
+    <div class="container">
+        <div class="iframe-container">
+            <iframe src="https://morganvalleyradio.intellidwell.net/public/morganvalleyradio/embed?theme=dark" frameborder="0" allowtransparency="true" style="width: 100%; min-height: 150px; border: 0;"></iframe>
+        </div>
+                                                                                                                                                                                                                   
+        <h2 class="subheading">For Android and iPhone (Including CarPlay and Android Auto)</h2>
+        <a href="https://mytuner-radio.com/radio/morgan-valley-radio-channel-497235/" class="mytuner-button" target="_blank">
+            <img src="{{ url_for('static', filename='mytuner-logo.png') }}" >
+            Listen on myTuner Radio
+        </a>
+                                                                                                                                                                                                                   
+        <h2 class="subheading">History</h2>
+        <div class="iframe-container">
+            <iframe src="https://morganvalleyradio.intellidwell.net/public/morganvalleyradio/history?theme=dark" frameborder="0" allowtransparency="true" style="width: 100%; min-height: 300px; border: 0;"></ifra
+me>
+        </div>
+                                                                                                                                                                                                                   
+        <h2 class="subheading">Request A Song</h2>
+        <div class="iframe-container">
+            <iframe src="https://morganvalleyradio.intellidwell.net/public/morganvalleyradio/embed-requests?theme=dark" frameborder="0" allowtransparency="true" style="width: 100%; min-height: 850px; border: 0;"
+></iframe>
+        </div>
+    </div>
+</body>
+</html>
